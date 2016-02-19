@@ -1,0 +1,68 @@
+extends layout
+
+block content
+  div.row
+    div.col.s3.blue.lighten-5.list-container
+      div.list
+        ul#user-list(data-bind-component='UserList')
+      a.add-user.btn-floating.btn-large.waves-effect.waves-light.red
+        i.mdi-content-add
+    div.col.s9.main-content
+  div#editTemplate(style='display:none;')
+    a.save-btn.waves-effect.waves-light.btn Save
+      i.mdi-file-cloud.left
+    h2 Edit User
+    form
+      div.row
+        div.col.s12
+          div.row
+            div.input-field.col.s6
+              i.mdi-action-account-circle.prefix
+              input.validate(id='icon_prefix', type='text', value='Empty')
+              label(for='icon_prefix') Name
+            div.input-field.col.s6
+              i.mdi-communication-phone.prefix
+              input.validate(id='icon_telephone', type='tel', value='Empty')
+              label(for='icon_telephone') Phone
+      div.row.city-field
+        div.input-field.col.s12
+          select
+            option(value='', disabled, selected) Choose a city
+            option(value='Kiev') Kiev
+            option(value='Kharkiv') Kharkiv
+            option(value='Dnepropetrovsk') Dnepropetrovsk
+            option(value='Lviv') Lviv
+            option(value='Odessa') Odessa
+            option(value='Online') Online
+          label City
+      div.row.strikes-field
+        label Strikes
+        div.range-field.col.s12
+          input#test5(type='range', min='0' max='2')
+  div#editTemplate(style='display:none;')
+    a.save-btn.waves-effect.waves-light.btn Save
+      i.mdi-file-cloud.left
+    h2 Edit User
+    form
+  div#addTemplate(style='display:none;')
+    a.save-btn.waves-effect.waves-light.btn Create
+      i.mdi-file-cloud.left
+    h2 Create User
+    form
+      div.row
+        div.col.s12
+          div.row
+            div.input-field.col.s6
+              i.mdi-action-account-circle.prefix
+              input.validate(id='icon_prefix', type='text', value='Empty')
+              label(for='icon_prefix') Name
+            div.input-field.col.s6
+              i.mdi-communication-phone.prefix
+              input.validate(id='icon_telephone', type='tel', value='Empty')
+              label(for='icon_telephone') Phone
+      div.row.type-field
+        select
+          option(value='Admin', selected) Administrator
+          option(value='Support', selected) Support
+          option(value='Student', selected) Student
+        label Role
