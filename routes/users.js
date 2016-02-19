@@ -43,7 +43,12 @@ router.post('', function(req, res, next) {
     if (newUser.role === 'Admin') {
       newUser.role = 'Administrator';
     }
-    newUser.id = (+(_.maxBy(users, 'id')).id + 1).toString();
+    if (users.length != 0) {
+      newUser.id = (+(_.maxBy(users, 'id')).id + 1).toString();
+    } else {
+      newUser.id = '1';
+    }
+
     users.push(newUser);
     res.append(headers.header, headers.value);
     res.send(JSON.stringify(newUser));
