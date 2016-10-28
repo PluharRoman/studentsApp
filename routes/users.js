@@ -80,8 +80,8 @@ router.put('*', function(req, res, next) {
 router.delete('*', function(req, res, next) {
   var id = req.url.split('/')[1];
   var item;
-  if(id){
-    item = _.find(users, {id: id});
+  if (id) {
+    item = _.find(users, {id: +id});
     if(!item){
       res.append(headers.header, headers.value);
       res.status(404).end();

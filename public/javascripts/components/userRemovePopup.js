@@ -5,7 +5,7 @@
     var dispatcher = new Dispatcher();
     dispatcher.on('user:remove', function(id){
       if (confirm('Вы действительно ходите удалить этого пользователя?')) {
-        storage.removeById(id);
+        storage.removeById(+id);
       }
     });
   }

@@ -7,7 +7,7 @@
   UserStorage.prototype.getById = function getById(id) {
     var i;
     for (i = 0; i < this.items.length; i++) {
-      if (this.items[i].id == id) {
+      if (this.items[i].id === id) {
         return this.items[i];
       }
     }
@@ -48,7 +48,6 @@
         alert('После сохранения не появился id! это ошибка!')
         cb(new Error());
       }
-      console.log(user, 'PPP');
       me.items.push(user);
       dispatcher.fire('user:added', user);
       cb(null, user);

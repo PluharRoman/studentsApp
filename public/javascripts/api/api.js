@@ -62,7 +62,7 @@
   User.prototype.remove = function remove(callback){
     var request = new XMLHttpRequest();
     var caller = this;
-    request.open('DELETE', window.crudURL + '/' + caller.id.toString());
+    request.open('DELETE', window.crudURL + '/' + caller.id);
     request.setRequestHeader('Content-Type', 'application/json');
     request.addEventListener('readystatechange', function (sender) {
       if (sender.target.readyState === sender.target.DONE) {
