@@ -36,17 +36,18 @@
         e.stopPropagation();
         return;
       }
-      dispatcher.fire('user:select', storage.getById(container.getAttribute('data-id')));
+      dispatcher.fire('user:select', storage.getById(+container.getAttribute('data-id')));
     });
     dispatcher.on('user:added', this.addItem.bind(this));
     dispatcher.on('user:removed', this.removeItem.bind(this));
     dispatcher.on('user:updated', this.updateItem.bind(this));
     dispatcher.on('user:select', function(user) {
+      console.log('USER: ', user);
       var currentActive = element.querySelector('.active');
       if (currentActive) {
         currentActive.classList.remove('active');
       }
-      var container = me._element.querySelector('[data-id="' + user.id + '"]');
+      var container = me._element.querySelector('[data-id="' + user.id.toString() + '"]');
       container.classList.add('active');
     });
   }
