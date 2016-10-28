@@ -44,7 +44,7 @@ router.post('', function(req, res, next) {
       newUser.role = 'Administrator';
     }
     if (users.length != 0) {
-      newUser.id = (+(_.maxBy(users, 'id')).id + 1).toString();
+      newUser.id = (+(_.maxBy(users, 'id')).id + 1);
     } else {
       newUser.id = '1';
     }
